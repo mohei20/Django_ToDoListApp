@@ -1,0 +1,10 @@
+{% extends 'partials/base.html' %}
+{% block title %}ToDo App{% endblock %}
+{% block content %}
+<center>
+    <h1>{{month}} {{year}}</h1>
+    {{cal|saf}}
+    <br><br><br>
+    {{current_year}}
+</center>
+{% endblock %}

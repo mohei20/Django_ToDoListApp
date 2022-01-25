@@ -1,0 +1,16 @@
+{% extends 'partials/base.html' %}
+{% block title %}ToDo App{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="border p-3 shadow">
+    <h3>Delete Task</h3>
+    <div class="alert alert-danger">
+        <p>Are you sure you want to delete this task</p>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <a class="btn btn-secondary" href="{% url 'todo-index' %}">Cancel</a>
+        <input class=" btn btn-danger" type="submit" value="Confirm">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'partials/base.html' %}
+{% block title %}ToDo App{% endblock %}
+{% block content %}
+<div class="border p-3 shadow">
+<form method="POST">
+        {% csrf_token %}
+        <input type="hidden" value="{{user}}" name="user_id">
+        <input type="text"  class="form-control me-2" name="content" placeholder="Add Task here..."><br>
+        <button class="btn btn-success btn-block" type="submit">Add Task</button>
+</form>
+</div>
+{% endblock%}

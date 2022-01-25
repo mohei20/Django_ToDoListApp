@@ -1,0 +1,16 @@
+{% extends 'partials/base.html' %}
+{% block title %}ToDo App{% endblock %}
+{% block content %}
+<div class="border p-3 shadow">
+    <form method="post">
+        {% csrf_token %}
+        <label>Content</label><br>
+        <input type="text" class="form-control me-2" name="content" value="{{content}}"><br>
+        <input type="checkbox" name="completed"
+               {% if completed == 1  %}
+               checked
+               {%endif%} />  <label>Completed</label>
+        <input class="btn btn-info btn-block" type="submit" value="update">
+    </form>
+</div>
+{% endblock %}

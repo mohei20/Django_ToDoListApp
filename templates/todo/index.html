@@ -1,0 +1,26 @@
+{% extends 'partials/base.html' %}
+{% block title %}ToDo App{% endblock %}
+{% block content %}
+<div class="border p-3 shadow">
+    {% for ToDo in tasks%}
+    <div class="border pt-3 mb-3">
+        <small>{{ToDo.date_created}}</small>
+        <div class="row">
+            <div class="col-md-8">
+                {% if ToDo.completed == True%}
+                <p><span class="btn btn-success btn-sm"><i class="far fa-check-circle"> </i>
+                </span> {{ToDo.content}}</p>
+                {%else%}
+                <p> {{ToDo.content}}</p>
+                {%endif%}
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-info btn-sm" href="{% url 'update' ToDo.id %}">Edit</a>
+                <a class="btn btn-danger btn-sm" href="{% url 'delete' ToDo.id %}">Delete</a>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+</div>
+{% endblock %}
